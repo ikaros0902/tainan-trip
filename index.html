@@ -48,11 +48,11 @@
     }
     .day-title span { color: var(--accent); font-size: .9rem; font-weight: 700; }
     .route { display: grid; gap: 12px; }
-    .day-two-route {
+    .timeline {
       position: relative;
       padding-left: 16px;
     }
-    .day-two-route::before {
+    .timeline::before {
       content: "";
       position: absolute;
       top: 10px;
@@ -61,7 +61,7 @@
       width: 1px;
       background: var(--accent-soft);
     }
-    .day-two-route .stop::before {
+    .timeline .stop::before {
       left: -19px;
       width: 11px;
       height: 11px;
@@ -112,6 +112,20 @@
       border-radius: 50%;
     }
     .meta { display: flex; flex-wrap: wrap; gap: 6px 12px; color: var(--accent); font-size: .92rem; font-weight: 700; }
+    .activity-icon, .reminder-icon {
+      display: inline-grid;
+      width: 1.45em;
+      height: 1.45em;
+      place-items: center;
+      margin-right: 4px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-radius: 50%;
+      font-family: sans-serif;
+      font-size: .86em;
+      line-height: 1;
+      vertical-align: -0.12em;
+    }
     .place { margin: 2px 0 2px; font-size: 1.15rem; font-weight: 800; }
     .note { margin: 0; color: var(--muted); font-size: .97rem; }
     footer { padding: 8px 0 34px; color: var(--muted); text-align: center; font-size: .85rem; }
@@ -131,24 +145,24 @@
   <main class="wrap">
     <section class="day" aria-labelledby="day-one">
       <h2 class="day-title" id="day-one">第一天 <span>老城散步・夜市小吃</span></h2>
-      <div class="route">
+      <div class="route timeline">
         <article class="stop">
-          <div class="meta"><span>10:30</span><span>集合</span></div>
+          <div class="meta"><span>10:30</span><span><span class="activity-icon" aria-hidden="true">⌖</span>集合</span></div>
           <h3 class="place">示意早餐店｜中西區</h3>
           <p class="note">先吃一份熱騰騰的台南早餐，補充體力再開始逛老城。</p>
         </article>
         <article class="stop">
-          <div class="meta"><span>12:00</span><span>散步</span></div>
+          <div class="meta"><span>12:00</span><span><span class="activity-icon" aria-hidden="true">↗</span>散步</span></div>
           <h3 class="place">示意古蹟｜赤崁樓周邊</h3>
           <p class="note">沿著老街慢慢走，看看紅磚古蹟與巷弄裡的小店。</p>
         </article>
         <article class="stop">
-          <div class="meta"><span>15:00</span><span>下午茶</span></div>
+          <div class="meta"><span>15:00</span><span><span class="activity-icon" aria-hidden="true">☕</span>下午茶</span></div>
           <h3 class="place">示意甜點店｜神農街</h3>
           <p class="note">找間有窗邊座位的店休息，順便拍幾張街屋與夕陽。</p>
         </article>
         <article class="stop">
-          <div class="meta"><span>18:30</span><span>晚餐</span></div>
+          <div class="meta"><span>18:30</span><span><span class="activity-icon" aria-hidden="true">✦</span>晚餐</span></div>
           <h3 class="place">示意夜市｜花園夜市</h3>
           <p class="note">晚餐用逛的，看到想吃的就分著點，留點胃口給下一攤。</p>
         </article>
@@ -157,24 +171,24 @@
 
     <section class="day" aria-labelledby="day-two">
       <h2 class="day-title" id="day-two">第二天 <span>早起採買・海風吹風</span></h2>
-      <div class="route day-two-route">
+      <div class="route timeline">
         <article class="stop">
-          <div class="meta"><span>08:30</span><span>早餐</span></div>
+          <div class="meta"><span>08:30</span><span><span class="activity-icon" aria-hidden="true">☼</span>早餐</span></div>
           <h3 class="place">示意牛肉湯店｜國華街</h3>
           <p class="note">早點出門吃碗清甜牛肉湯，感受台南人一天的開始。</p>
         </article>
         <article class="stop">
-          <div class="meta"><span>10:30</span><span>採買</span></div>
+          <div class="meta"><span>10:30</span><span><span class="activity-icon" aria-hidden="true">◇</span>採買</span></div>
           <h3 class="place">示意伴手禮店｜永樂市場</h3>
           <p class="note">買些小點心和在地味道，回家後也能把旅程分享給家人。</p>
         </article>
         <article class="stop">
-          <div class="meta"><span>14:00</span><span>看海</span></div>
+          <div class="meta"><span>14:00</span><span><span class="activity-icon" aria-hidden="true">≈</span>看海</span></div>
           <h3 class="place">示意海邊咖啡｜安平</h3>
           <p class="note">到海邊吹吹風、喝杯咖啡，把步調放慢到最舒服的速度。</p>
         </article>
         <article class="stop">
-          <div class="meta"><span>16:30</span><span>返程</span></div>
+          <div class="meta"><span>16:30</span><span><span class="activity-icon" aria-hidden="true">☼</span>返程</span></div>
           <h3 class="place">示意夕陽景點｜漁光島</h3>
           <p class="note">用一段夕陽收尾，拍張合照後再悠閒回家。</p>
         </article>
@@ -189,15 +203,15 @@
     </div>
     <div class="route reminder-content" id="reminder-content" hidden>
       <article class="stop">
-        <div class="meta"><span>天氣</span></div>
+        <div class="meta"><span><span class="reminder-icon" aria-hidden="true">☼</span>天氣</span></div>
         <p class="note">示意：晴時多雲，約 24–30°C，午後可能有短暫雨。</p>
       </article>
       <article class="stop">
-        <div class="meta"><span>要帶的東西</span></div>
+        <div class="meta"><span><span class="reminder-icon" aria-hidden="true">✓</span>要帶的東西</span></div>
         <p class="note">示意：水壺、雨具、防曬用品、行動電源與好走的鞋。</p>
       </article>
       <article class="stop">
-        <div class="meta"><span>集合時間</span></div>
+        <div class="meta"><span><span class="reminder-icon" aria-hidden="true">◷</span>集合時間</span></div>
         <p class="note">示意：第一天上午 10:30，台南車站前站出口。</p>
       </article>
     </div>
